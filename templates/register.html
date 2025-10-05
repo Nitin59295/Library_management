@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Register</h2>
+<form id="registerForm">
+  <input type="text" placeholder="Username" name="username" required><br><br>
+  <input type="email" placeholder="Email" name="email"><br><br>
+  <input type="password" placeholder="Password" name="password" required><br><br>
+  <select name="role">
+    <option value="customer">Customer</option>
+    <option value="librarian">Librarian</option>
+  </select><br><br>
+  <button type="submit">Register</button>
+</form>
+<div id="result"></div>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const data = {
+    username: this.username.value,
+    email: this.email.value,
+    password: this.password.value,
+    role: this.role.value
+  };
+  const res = await fetch("/api/auth/register/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+  document.getElementById("result").innerText = await res.text();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,46 @@
+# ---- Django & Python ----
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.pot
+*.py[co]
+*.egg
+*.egg-info/
+*.bak
+*.swp
+*~
+
+# ---- Django specific ----
+media/
+staticfiles/
+local_settings.py
+db.sqlite3
+
+# ---- Virtual environment ----
+venv/
+env/
+ENV/
+.venv/
+.vevn/
+vevn/
+
+# ---- VSCode / IDE / System files ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- Migrations (optional) ----
+*/migrations/__pycache__/
+# You can also ignore all migrations if you want to recreate later
+# */migrations/*
+
+# ---- Environment / Secrets ----
+.env
+.env.*
+.secret_key
+*.pem

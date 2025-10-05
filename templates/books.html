@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Books</h2>
+<div id="books"></div>
+
+<script>
+async function loadBooks() {
+  const res = await fetch("/api/books/");
+  const books = await res.json();
+  let html = "";
+  books.forEach(b => {
+    html += `<div class="card">
+      <h3>${b.title}</h3>
+      <p><b>Author:</b> ${b.author}</p>
+      <p><b>Price:</b> ${b.price}</p>
+      <button onclick="addToCart(${b.id})">Add to Cart</button>
+    </div>`;
+  });
+  document.getElementById("books").innerHTML = html;
+}
+
+async function addToCart(bookId) {
+  const token = localStorage.getItem("access");
+  const res = await fetch("/api/cart/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
+    body: JSON.stringify({ book_id: bookId, quantity: 1 })
+  });
+  alert(await res.text());
+}
+
+loadBooks();
+</script>
+{% endblock %}
