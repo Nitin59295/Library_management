@@ -24,5 +24,11 @@ Simple library management backend built with Django REST Framework.
 1. Install dependencies  
    ```bash
    pip install -r requirements.txt
+
+1. Run the server
+   ```bash
    python manage.py runserver
+
+
+
 
