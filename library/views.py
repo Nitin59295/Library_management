@@ -33,7 +33,6 @@ class BookReportView(generics.ListAPIView):
     def get_queryset(self):
         return Book.objects.annotate(issue_count=Count('orderitem')).order_by('-issue_count')
 
-# --- Customer Views ---
 
 class BookBrowseView(generics.ListAPIView):
 
