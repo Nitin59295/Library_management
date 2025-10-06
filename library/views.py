@@ -1,5 +1,3 @@
-# library/views.py
-
 from rest_framework import generics, status, filters
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -11,22 +9,21 @@ from .models import Book, Cart, CartItem, Order, OrderItem, Wishlist
 from .serializers import BookSerializer, CartSerializer, OrderSerializer, WishlistSerializer
 from .permissions import IsLibrarian
 
-# --- Librarian Views ---
+
 
 class BookManageView(generics.ListCreateAPIView):
-    """Librarians can add (POST) a new book or view all books (GET)."""
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticated, IsLibrarian]
 
 class BookDetailManageView(generics.DestroyAPIView):
-    """Librarians can delete (DELETE) a specific book."""
+
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticated, IsLibrarian]
 
 class BookReportView(generics.ListAPIView):
-    """Provides a summary of how many times each book has been issued (ordered)."""
+
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticated, IsLibrarian]
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
@@ -39,7 +36,7 @@ class BookReportView(generics.ListAPIView):
 # --- Customer Views ---
 
 class BookBrowseView(generics.ListAPIView):
-    """Customers can browse and filter all available books."""
+
     serializer_class = BookSerializer
     permission_classes = [AllowAny]
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
@@ -93,11 +90,11 @@ class CheckoutView(APIView):
             cart.items.all().delete()
 
         serializer = OrderSerializer(order)
-        # The response serves as the simple bill summary
+
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 class WishlistView(generics.ListCreateAPIView):
-    """Customers can add a book to their wishlist (POST) or view their wishlist (GET)."""
+
     serializer_class = WishlistSerializer
     permission_classes = [IsAuthenticated]
 
@@ -108,7 +105,7 @@ class WishlistView(generics.ListCreateAPIView):
         serializer.save(user=self.request.user)
 
 class WishlistDetailView(generics.DestroyAPIView):
-    """Customers can remove a book from their wishlist."""
+
     serializer_class = WishlistSerializer
     permission_classes = [IsAuthenticated]
 
