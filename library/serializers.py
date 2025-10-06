@@ -1,5 +1,3 @@
-# library/serializers.py
-
 from rest_framework import serializers
 from .models import Book, Cart, CartItem, Order, OrderItem, Wishlist
 
@@ -40,7 +38,7 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = ['id', 'user_username', 'issue_date', 'return_date', 'total_price', 'items']
 
-# New Serializer for the Wishlist feature
+
 class WishlistSerializer(serializers.ModelSerializer):
     book = BookSerializer(read_only=True)
     book_id = serializers.PrimaryKeyRelatedField(
