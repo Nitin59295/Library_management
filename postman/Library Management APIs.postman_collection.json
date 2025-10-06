@@ -1,0 +1,560 @@
+{
+	"info": {
+		"_postman_id": "d0fa1879-4b4f-47ff-a4da-bcace9fe3aca",
+		"name": "Library Management APIs",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48988607",
+		"_collection_link": "https://nitin59295-1124186.postman.co/workspace/Nitin-bhatia's-Workspace~47f4e0ec-c02f-4e74-80d1-aeb4478f4b33/collection/48988607-d0fa1879-4b4f-47ff-a4da-bcace9fe3aca?action=share&source=collection_link&creator=48988607"
+	},
+	"item": [
+		{
+			"name": "User Registration and Login",
+			"item": [
+				{
+					"name": "Register and Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"customer_rahul\",\r\n    \"password\": \"Rahul123!\",\r\n    \"email\": \"rahul@example.com\",\r\n    \"role\": \"customer\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Librarian",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"librarian_anita\",\r\n    \"password\": \"Anita456!\",\r\n    \"email\": \"anita@example.com\",\r\n    \"role\": \"librarian\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Librarian Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"librarian_anita\",\r\n    \"password\": \"Anita456!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/token/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Customer Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"customer_rahul\",\r\n    \"password\": \"Rahul123!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/token/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Librarian Actions",
+			"item": [
+				{
+					"name": "Manage Books",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5NjUyMzg3LCJpYXQiOjE3NTk2NTIwODcsImp0aSI6ImVhZDFmN2FlZWQzZTQ3MjZhODJlNzA4NDkyZWVjMjU0IiwidXNlcl9pZCI6IjMifQ.d7Wa85h5_C0tYnvxUEcm6j-wscbqZ5f_gRtkb_pnrdg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"The Palace of Illusions\",\r\n    \"author\": \"Chitra Banerjee Divakaruni\",\r\n    \"isbn\": \"9780143114972\",\r\n    \"price\": \"350.00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/librarian/books/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"librarian",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adding Another book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5NjYxMTk0LCJpYXQiOjE3NTk2NjA4OTQsImp0aSI6IjAyZTc2OTNiZGQzMDQ1ZGZhMzhkMzk5NWUyOTBiZjIyIiwidXNlcl9pZCI6IjMifQ.ah9Nc0cWwM9L_Myya7NK6r_toY93bENnVb5rfgve-fM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Half Girlfriend\",\r\n    \"author\": \"Chetan Bhagat\",\r\n    \"isbn\": \"9788184003875\",\r\n    \"price\": \"299.00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/librarian/books/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"librarian",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report View",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5NjUyNzQyLCJpYXQiOjE3NTk2NTI0NDIsImp0aSI6Ijc5MjAzYmY2NTM4MzQzMTlhOGZiNTViNWVjNmIwZmRlIiwidXNlcl9pZCI6IjMifQ.00P10ESyF0Trc4xGbtxHIH50O9p8kXpBubTHQkiAn-I",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/librarian/report/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"librarian",
+								"report",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a book",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5NjUyODQ3LCJpYXQiOjE3NTk2NTI1NDcsImp0aSI6ImEzYTJkZDBjNDlhYjQzODc4Y2FmNzE5MjlmNzM3Nzk4IiwidXNlcl9pZCI6IjMifQ.m9lh5Wrzy6_HXVsaJgnrKvuJ0qcCg2KY2t0R3g9Q6_c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/librarian/books/2/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"librarian",
+								"books",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View book report",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5NjYxMTEzLCJpYXQiOjE3NTk2NjA4MTMsImp0aSI6ImFiMWMwMThmN2U5ZTQ1NDRhYzIzNzNjNjAwMDkwYTAyIiwidXNlcl9pZCI6IjMifQ.L5V0WO_IXNNGqTGJJk9TbEyccOdqqbHQyxCnn9gEYgg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/librarian/report/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"librarian",
+								"report",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter by author",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5NjYxMjY3LCJpYXQiOjE3NTk2NjA5NjcsImp0aSI6IjM2MzQzZmIwMmNlODQ1NmI5NTQ3ZDI2OTBkMDJlMzlhIiwidXNlcl9pZCI6IjMifQ.OvRFpPxYWgtxWL0zpSfz2CSzGHeh8k6OddoNhtx_xE0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/librarian/report/?author=Chetan+Bhagat",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"librarian",
+								"report",
+								""
+							],
+							"query": [
+								{
+									"key": "author",
+									"value": "Chetan+Bhagat"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer Actions",
+			"item": [
+				{
+					"name": "Books view",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5NjUyOTY5LCJpYXQiOjE3NTk2NTI2NjksImp0aSI6IjE5MWJhYjU3ZTdiZTQwYjc4ZWM0M2ZhNjI4ZjI2MGJhIiwidXNlcl9pZCI6IjIifQ.PGAD_dMXieZ9v1ZLl74UJO1o5ACOrzLx8PKMRQzrpfw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/books/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add to cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5NjUzMzEzLCJpYXQiOjE3NTk2NTMwMTMsImp0aSI6IjZiZWU0ZjUzYzNkZTQyN2U5MzY2ZmNlYmIyMWYzM2UxIiwidXNlcl9pZCI6IjIifQ.DhZBvWZ31NjOOxPR-XW3RV1pDRD7uRrBRso6ZT01Y_Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book_id\": 1,\r\n    \"quantity\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/cart/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cart",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Checkout books",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5NjUzMzY0LCJpYXQiOjE3NTk2NTMwNjQsImp0aSI6ImM2M2I1Mzc4YTc1MzQ1ZTM4MTMzOThiOTYzZmJmMmY4IiwidXNlcl9pZCI6IjIifQ.C9qV_ssI_iwFb1xrzkSEPe6qI5zL3oKZHkbhNSt2VrM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/checkout/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"checkout",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save book for later",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5NjYxNDA3LCJpYXQiOjE3NTk2NjExMDcsImp0aSI6IjM3NmZmZWIyNmNjZTRjYzM5ZmVmNGE0YmQxZDE5ZDEwIiwidXNlcl9pZCI6IjIifQ.oaYLU5ldub-3AB777b0s9Pr127Ld3_M1tYXUByyD5xQ",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book_id\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/wishlist/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"wishlist",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
