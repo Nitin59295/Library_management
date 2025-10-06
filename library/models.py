@@ -1,5 +1,3 @@
-# library/models.py
-
 from django.db import models
 from django.utils import timezone
 from datetime import timedelta
@@ -11,8 +9,7 @@ class Book(models.Model):
     isbn = models.CharField(max_length=13, unique=True, help_text='13 Character ISBN')
     price = models.DecimalField(max_digits=6, decimal_places=2)
     cover_image_url = models.URLField(max_length=200, blank=True, null=True)
-    stock = models.PositiveIntegerField(default=1) # Assuming stock is relevant for availability
-
+    stock = models.PositiveIntegerField(default=1) 
     def __str__(self):
         return self.title
 
@@ -38,7 +35,7 @@ class Order(models.Model):
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def save(self, *args, **kwargs):
-        if not self.id: # Set return date only on creation
+        if not self.id: 
             self.return_date = timezone.now() + timedelta(days=14)
         super(Order, self).save(*args, **kwargs)
 
@@ -60,7 +57,7 @@ class Wishlist(models.Model):
     added_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'book') # A user can only wishlist a book once
+        unique_together = ('user', 'book') 
 
     def __str__(self):
         return f"{self.book.title} in {self.user.username}'s wishlist"
